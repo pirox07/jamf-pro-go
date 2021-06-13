@@ -116,9 +116,9 @@ type CreateScriptParams struct {
 	Parameter10    string `json:"parameter10,omitempty"`
 	Parameter11    string `json:"parameter11,omitempty"`
 	// Operating system requirements (e.g., "10.6.8, 10.7.x, 10.8")
-	OsRequirements string `json:"osRequirements"`
+	OsRequirements string `json:"osRequirements,omitempty"`
 	// Script code
-	ScriptContents string `json:"scriptContents"`
+	ScriptContents string `json:"scriptContents,omitempty"`
 }
 
 func (c *Client) CreateScript (params CreateScriptParams) (*CreateScriptResult, error) {
