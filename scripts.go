@@ -2,6 +2,7 @@ package jamf_pro_go
 
 import (
 	"fmt"
+	"io"
 	"net/http"
 	"path"
 
@@ -173,4 +174,15 @@ func (c *Client) UpdateScript (scriptID string, params UpdateScriptParams) (*Scr
 	}
 
 	return &result, nil
+}
+
+func (c *Client) DeleteScript (scriptID string) error {
+	err := c.call(path.Join(APIVersionScripts, APIPathScripts, scriptID), http.MethodDelete,
+		APIVersionScripts, nil, nil, nil)
+	if err != io.EOF {
+		return err
+	}
+	fmt.Println("[jamf-pro-go] Script (ID: ", scriptID, ") is deleted")
+
+	return nil
 }
