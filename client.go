@@ -15,7 +15,7 @@ import (
 )
 
 const (
-	APIPathClassic	= "/JSSResource"
+	APIPathClassic	= "/JSSResource/"
 	APIPathV1		= "/uapi/"
 )
 
@@ -127,7 +127,7 @@ func (c *Client) call(apiPath, method, apiVersion string,
 	if err != nil {
 		return err
 	}
-	return c.do(req, res)
+	return c.do(req, apiVersion, res)
 }
 
 
@@ -171,7 +171,7 @@ func (c *Client) newRequest(
 	return req, nil
 }
 
-func (c *Client) do(req *http.Request, res interface{}) error {
+func (c *Client) do(req *http.Request, apiVersion string, res interface{}) error {
 	response, err := c.httpClient.Do(req)
 	if err != nil {
 		return err
@@ -198,5 +198,11 @@ func (c *Client) do(req *http.Request, res interface{}) error {
 		return res
 	}
 
-	return json.NewDecoder(r).Decode(&res)
+	if apiVersion == "v1" {
+		return json.NewDecoder(r).Decode(&res)
+	} else if apiVersion == "classic" {
+		return xml.NewDecoder(r).Decode(&res)
+	}
+
+	return errors.New("[jamf-pro-go] apiVersion value is invalid")
 }
