@@ -9,13 +9,13 @@ import (
 )
 
 const (
-	APIVersionScripts = "v1"
-	APIPathScripts = "scripts"
+	APIVersionScripts	= "v1"
+	APIPathScripts		= "scripts"
 )
 
 type Scripts struct {
-	TotalCount uint32	`json:"totalCount"`
-	Results []Script	`json:"results"`
+	TotalCount	uint32		`json:"totalCount"`
+	Results		[]Script	`json:"results"`
 }
 
 type Script struct {
@@ -28,7 +28,7 @@ type Script struct {
 	// Notes to be displayed about the script (e.g. author, creation date)
 	Notes          string `json:"notes"`
 	// Priority to be used for executing scripts related to other actions
-	// [ "AFTER", "BEFORE" ]
+	// [ BEFORE, AFTER, AT_REBOOT ]
 	Priority       string `json:"priority"`
 	// Category to which the script will be added
 	CategoryID     string `json:"categoryId"`
@@ -86,8 +86,8 @@ func (c *Client) GetScript(scriptID uint32) (*Script, error) {
 }
 
 type CreateScriptResult struct {
-	ID	string `json:"id"`
-	Href string `json:"href"`
+	ID		string	`json:"id"`
+	Href	string	`json:"href"`
 }
 
 type CreateScriptParams struct {
