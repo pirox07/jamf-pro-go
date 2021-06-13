@@ -9,8 +9,7 @@ const (
 	APIPathPolices		= "policies"
 )
 
-//type GetPoliciesResult struct {
-type Policies struct {
+type GetPoliciesResult struct {
 	Size uint32									`xml:"size"`
 	Policy []GetPoliciesResultPolicyOverview 	`xml:"policy"`
 }
@@ -20,8 +19,8 @@ type GetPoliciesResultPolicyOverview struct {
 	Name	string `xml:"name"`
 }
 
-func (c *Client) GetPolicies() (*Policies, error) {
-	var result Policies
+func (c *Client) GetPolicies() (*GetPoliciesResult, error) {
+	var result GetPoliciesResult
 
 	err := c.call(APIPathPolices, http.MethodGet,
 		APIVersionPolicies, nil, nil, &result)
