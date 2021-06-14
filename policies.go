@@ -499,3 +499,14 @@ func (c *Client) UpdatePolicy (policyID uint32, params *UpdatePolicyParams) (*Up
 
 	return &result, nil
 }
+
+func (c *Client) DeletePolicy (policyID uint32) error {
+	err := c.call(path.Join(APIPathPolices, "id", fmt.Sprint(policyID)), http.MethodDelete,
+		APIVersionPolicies, nil, nil, nil)
+	if err != nil {
+		return err
+	}
+	fmt.Println("[jamf-pro-go] Policy (ID: ", policyID, ") is deleted")
+
+	return nil
+}
