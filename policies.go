@@ -400,12 +400,12 @@ type PolicyDiskEncryption struct {
 }
 
 type GetPoliciesResult struct {
-	Size uint32									`xml:"size,omitempty"`
+	Size int32									`xml:"size,omitempty"`
 	Policy []GetPoliciesResultPolicyOverview 	`xml:"policy,omitempty"`
 }
 
 type GetPoliciesResultPolicyOverview struct {
-	ID 		uint32 `xml:"id,omitempty"`
+	ID 		int32 `xml:"id,omitempty"`
 	Name	string `xml:"name,omitempty"`
 }
 
@@ -458,6 +458,40 @@ func (c *Client) CreatePolicy (params *CreatePolicyParams) (*CreatePolicyResult,
 	var result CreatePolicyResult
 
 	err := c.call(path.Join(APIPathPolices, "id", "0"), http.MethodPost,
+		APIVersionPolicies, nil, params, &result)
+	if err != nil {
+		return nil, err
+	}
+
+	return &result, nil
+}
+
+
+type UpdatePolicyParams struct {
+	XMLName              	xml.Name                  	`xml:"policy,omitempty"`
+	General					*PolicyGeneral				`xml:"general,omitempty"`
+	Scope					*PolicyScope				`xml:"scope,omitempty"`
+	SelfService				*PolicySelfService			`xml:"self_service,omitempty"`
+	PackageConfiguration	*PolicyPackageConfiguration	`xml:"package_configuration,omitempty"`
+	Scripts					*PolicyScripts				`xml:"scripts,omitempty"`
+	Printers				*PolicyPrinters				`xml:"printers,omitempty"`
+	DockItems				*PolicyDockItems			`xml:"dock_items,omitempty"`
+	AccountMaintenance		*PolicyAccountMaintenance	`xml:"account_maintenance,omitempty"`
+	Maintenance				*PolicyMaintenance			`xml:"maintenance,omitempty"`
+	FilesProcesses			*PolicyFilesProcesses		`xml:"files_processes,omitempty"`
+	UserInteraction			*PolicyUserInteraction		`xml:"user_interaction,omitempty"`
+	DiskEncryption			*PolicyDiskEncryption		`xml:"disk_encryption,omitempty"`
+}
+
+type UpdatePolicyResult struct {
+	XMLName	xml.Name	`xml:"policy,omitempty"`
+	ID		uint32		`xml:"id,omitempty"`
+}
+
+func (c *Client) UpdatePolicy (policyID uint32, params *UpdatePolicyParams) (*UpdatePolicyResult, error) {
+	var result UpdatePolicyResult
+
+	err := c.call(path.Join(APIPathPolices, "id", fmt.Sprint(policyID)), http.MethodPut,
 		APIVersionPolicies, nil, params, &result)
 	if err != nil {
 		return nil, err
