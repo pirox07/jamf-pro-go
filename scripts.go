@@ -53,7 +53,7 @@ type Script struct {
 type GetScriptsOpts struct {
 	Page  		uint32		`url:"page,omitempty"`
 	PageSize	uint32		`url:"page-size,omitempty"`
-	Sort		[]string		`url:"sort,omitempty"`
+	Sort		[]string	`url:"sort,omitempty"`
 	Filter		string		`url:"filter,omitempty"`
 }
 

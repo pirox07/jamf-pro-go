@@ -66,8 +66,7 @@ type PolicyDateTimeLimitations struct {
 	ExpirationDate      string 	`xml:"expiration_date,omitempty"`
 	ExpirationDateEpoch uint64	`xml:"expiration_date_epoch,omitempty"`
 	ExpirationDateUtc   string 	`xml:"expiration_date_utc,omitempty"`
-	NoExecuteOn         string 	`xml:"no_execute_on,omitempty"`
-	  // Enum: [ Sun, Mon, Tue, Wed, Thu, Fri, Sat ]
+	NoExecuteOn         string 	`xml:"no_execute_on,omitempty"` // Enum: [ Sun, Mon, Tue, Wed, Thu, Fri, Sat ]
 	NoExecuteStart      string 	`xml:"no_execute_start,omitempty"`
 	NoExecuteEnd        string 	`xml:"no_execute_end,omitempty"`
 }
@@ -99,7 +98,7 @@ type PolicyScope struct {
 	ComputerGroups	*PolicyScopeComputerGroups	`xml:"computer_groups,omitempty"`
 	Buildings		*PolicyScopeBuildings		`xml:"buildings,omitempty"`
 	Departments		*PolicyScopeDepartments		`xml:"departments,omitempty"`
-	LimitToUsers	*PolicyScopeLimitToUsers		`xml:"limit_to_users,omitempty"`
+	LimitToUsers	*PolicyScopeLimitToUsers	`xml:"limit_to_users,omitempty"`
 	Limitations		*PolicyScopeLimitations		`xml:"limitations,omitempty"`
 	Exclusions		*PolicyScopeExclusions		`xml:"exclusions,omitempty"`
 }
@@ -157,7 +156,7 @@ type PolicyScopeLimitations struct {
 	Users           *PolicyScopeUsers			`xml:"users,omitempty"`
 	UserGroups      *PolicyScopeUserGroups		`xml:"user_groups,omitempty"`
 	NetworkSegments *PolicyScopeNetworkSegments	`xml:"network_segments,omitempty"`
-	Ibeacons        *PolicyScopeIbeacons			`xml:"ibeacons,omitempty"`
+	Ibeacons        *PolicyScopeIbeacons		`xml:"ibeacons,omitempty"`
 }
 
 type PolicyScopeUsers struct {
@@ -204,28 +203,28 @@ type PolicyScopeExclusions struct {
 	Users           *PolicyScopeUsers			`xml:"users,omitempty"`
 	UserGroups      *PolicyScopeUserGroups		`xml:"user_groups,omitempty"`
 	NetworkSegments	*PolicyScopeNetworkSegments	`xml:"network_segments,omitempty"`
-	Ibeacons        *PolicyScopeIbeacons			`xml:"ibeacons,omitempty"`
+	Ibeacons        *PolicyScopeIbeacons		`xml:"ibeacons,omitempty"`
 }
 
 type PolicySelfService struct {
 	// default: false
-	UseForSelfService           bool						`xml:"use_for_self_service,omitempty"`
-	SelfServiceDisplayName      string						`xml:"self_service_display_name,omitempty"`
-	InstallButtonText           string						`xml:"install_button_text,omitempty"`
-	ReinstallButtonText         string						`xml:"reinstall_button_text,omitempty"`
-	SelfServiceDescription      string						`xml:"self_service_description,omitempty"`
+	UseForSelfService           bool						 `xml:"use_for_self_service,omitempty"`
+	SelfServiceDisplayName      string						 `xml:"self_service_display_name,omitempty"`
+	InstallButtonText           string						 `xml:"install_button_text,omitempty"`
+	ReinstallButtonText         string						 `xml:"reinstall_button_text,omitempty"`
+	SelfServiceDescription      string						 `xml:"self_service_description,omitempty"`
 	// default: false
-	ForceUsersToViewDescription bool						`xml:"force_users_to_view_description,omitempty"`
-	SelfServiceIcon             *PolicySelfServiceIcon		`xml:"self_service_icon,omitempty"`
+	ForceUsersToViewDescription bool						 `xml:"force_users_to_view_description,omitempty"`
+	SelfServiceIcon             *PolicySelfServiceIcon		 `xml:"self_service_icon,omitempty"`
 	// default: false
-	FeatureOnMainPage           bool						`xml:"feature_on_main_page,omitempty"`
-	SelfServiceCategories       *PolicySelfServiceCategories	`xml:"self_service_categories,omitempty"`
+	FeatureOnMainPage           bool						 `xml:"feature_on_main_page,omitempty"`
+	SelfServiceCategories       *PolicySelfServiceCategories `xml:"self_service_categories,omitempty"`
 }
 
 type PolicySelfServiceIcon struct {
 	ID		uint32	`xml:"id,omitempty"`
-	Name	string `xml:"name,omitempty"`
-	Url		string `xml:"url,omitempty"`
+	Name	string	`xml:"name,omitempty"`
+	Url		string	`xml:"url,omitempty"`
 }
 
 type PolicySelfServiceCategories struct {
@@ -234,10 +233,8 @@ type PolicySelfServiceCategories struct {
 
 type PolicySelfServiceCategory struct {
 	ID			uint32	`xml:"id,omitempty"`
-	Name		string	`xml:"name,omitempty"`
-	// default: true
-	DisplayIn 	bool	`xml:"display_in,omitempty"`
-	// default: false
+	Name		string	`xml:"name,omitempty"`       // default: true
+	DisplayIn 	bool	`xml:"display_in,omitempty"` // default: false
 	FeatureIn 	bool	`xml:"feature_in,omitempty"`
 }
 
@@ -261,15 +258,14 @@ type PolicyPackage struct {
 
 
 type PolicyScripts struct {
-	Size		uint32       `xml:"size,omitempty"`
-	PolicyScript []*PolicyScript `xml:"script,omitempty"`
+	Size		uint32				`xml:"size,omitempty"`
+	PolicyScript []*PolicyScript	`xml:"script,omitempty"`
 }
 
 type PolicyScript struct {
 	ID          uint32	`xml:"id,omitempty"`
 	Name        string	`xml:"name,omitempty"`
-	// [ Before, After ]
-	Priority    string	`xml:"priority,omitempty"`
+	Priority    string	`xml:"priority,omitempty"`  // [ Before, After ]
 	Parameter4  string	`xml:"parameter4,omitempty"`
 	Parameter5  string	`xml:"parameter5,omitempty"`
 	Parameter6  string	`xml:"parameter6,omitempty"`
@@ -281,16 +277,15 @@ type PolicyScript struct {
 }
 
 type PolicyPrinters struct {
-	Size					uint32		`xml:"size,omitempty"`
-	LeaveExistingDefault	string		`xml:"leave_existing_default,omitempty"`
-	Printer					[]*PolicyPrinter	`xml:"printer,omitempty"`
+	Size					uint32			 `xml:"size,omitempty"`
+	LeaveExistingDefault	string			 `xml:"leave_existing_default,omitempty"`
+	Printer					[]*PolicyPrinter `xml:"printer,omitempty"`
 }
 
 type PolicyPrinter struct {
 	ID			uint32	`xml:"id,omitempty"`
 	Name		uint32	`xml:"name,omitempty"`
-	// [ install, uninstall ]
-	Action		string	`xml:"action,omitempty"`
+	Action		string	`xml:"action,omitempty"` // [ install, uninstall ]
 	MakeDefault	string	`xml:"make_default,omitempty"`
 }
 
@@ -302,14 +297,13 @@ type PolicyDockItems struct {
 type PolicyDockItem struct {
 	ID		uint32 `xml:"id,omitempty"`
 	Name	string `xml:"name,omitempty"`
-	// [ Add To Beginning, Add To End, Remove ]
-	Action	string `xml:"action,omitempty"`
+	Action	string `xml:"action,omitempty"`  // [ Add To Beginning, Add To End, Remove ]
 }
 
 type PolicyAccountMaintenance struct {
 	Accounts				*PolicyAccounts					`xml:"accounts,omitempty"`
-	DirectoryBindings		*PolicyDirectoryBindings			`xml:"directory_bindings,omitempty"`
-	ManagementAccount		*PolicyManagementAccount			`xml:"management_account,omitempty"`
+	DirectoryBindings		*PolicyDirectoryBindings		`xml:"directory_bindings,omitempty"`
+	ManagementAccount		*PolicyManagementAccount		`xml:"management_account,omitempty"`
 	OpenFirmwareEfiPassword	*PolicyOpenFirmwareEfiPassword	`xml:"open_firmware_efi_password,omitempty"`
 }
 
@@ -319,8 +313,7 @@ type PolicyAccounts struct {
 }
 
 type PolicyAccount struct {
-	// [ Create, Reset, Delete, DisableFileVault ]
-	Action					string	`xml:"action,omitempty"`
+	Action					string	`xml:"action,omitempty"`  // [ Create, Reset, Delete, DisableFileVault ]
 	UserName				string	`xml:"user_name,omitempty"`
 	RealName				string	`xml:"real_name,omitempty"`
 	Password				string	`xml:"password,omitempty"`
@@ -343,16 +336,13 @@ type PolicyDirectoryBinding struct {
 }
 
 type PolicyManagementAccount struct {
-	// [ specified, random, reset, fileVaultEnable, fileVaultDisable ]
-	Action					string `xml:"action,omitempty"`
+	Action					string `xml:"action,omitempty"` // [ specified, random, reset, fileVaultEnable, fileVaultDisable ]
 	ManagedPassword			string `xml:"managed_password,omitempty"`
-	// Only necessary when utilizing the random action
 	ManagedPasswordLength	uint32 `xml:"managed_password_length,omitempty"`
 }
 
 type PolicyOpenFirmwareEfiPassword struct {
-	// [ command, none ]
-	OfMode		string	`xml:"of_mode,omitempty"`
+	OfMode		string	`xml:"of_mode,omitempty"` 	// [ command, none ]
 	OfPassword	string	`xml:"of_password,omitempty"`
 }
 
@@ -389,24 +379,21 @@ type PolicyUserInteraction struct {
 }
 
 type PolicyDiskEncryption struct {
-	// [ apply, remediate ]
-	Action									string	`xml:"action,omitempty"`
+	Action									string	`xml:"action,omitempty"`  	// [ apply, remediate ]
 	DiskEncryptionConfigurationID			uint32	`xml:"disk_encryption_configuration_id,omitempty"`
-	AuthRestart								bool	`xml:"auth_restart,omitempty"`
-	// [ Individual, Institutional, Individual And Institutional ]
+	AuthRestart								bool	`xml:"auth_restart,omitempty"` 	// [ Individual, Institutional, Individual And Institutional ]
 	RemediateKeyType						string	`xml:"remediate_key_type,omitempty"`
-	// disk encryption ID to utilize for remediating institutional recovery key types.
 	RemediateDiskEncryptionConfigurationID	uint32	`xml:"remediate_disk_encryption_configuration_id,omitempty"`
 }
 
 type GetPoliciesResult struct {
-	Size int32									`xml:"size,omitempty"`
-	Policy []GetPoliciesResultPolicyOverview 	`xml:"policy,omitempty"`
+	Size	int32				`xml:"size,omitempty"`
+	Policy	[]PolicyOverview 	`xml:"policy,omitempty"`
 }
 
-type GetPoliciesResultPolicyOverview struct {
-	ID 		int32 `xml:"id,omitempty"`
-	Name	string `xml:"name,omitempty"`
+type PolicyOverview struct {
+	ID 		int32	`xml:"id,omitempty"`
+	Name	string	`xml:"name,omitempty"`
 }
 
 func (c *Client) GetPolicies() (*GetPoliciesResult, error) {
@@ -436,12 +423,12 @@ func (c *Client) GetPolicy(policyID uint32) (*Policy, error) {
 type CreatePolicyParams struct {
 	XMLName              	xml.Name                  	`xml:"policy,omitempty"`
 	General					*PolicyGeneral				`xml:"general,omitempty"`
-	Scope					*PolicyScope					`xml:"scope,omitempty"`
+	Scope					*PolicyScope				`xml:"scope,omitempty"`
 	SelfService				*PolicySelfService			`xml:"self_service,omitempty"`
 	PackageConfiguration	*PolicyPackageConfiguration	`xml:"package_configuration,omitempty"`
 	Scripts					*PolicyScripts				`xml:"scripts,omitempty"`
 	Printers				*PolicyPrinters				`xml:"printers,omitempty"`
-	DockItems				*PolicyDockItems				`xml:"dock_items,omitempty"`
+	DockItems				*PolicyDockItems			`xml:"dock_items,omitempty"`
 	AccountMaintenance		*PolicyAccountMaintenance	`xml:"account_maintenance,omitempty"`
 	Maintenance				*PolicyMaintenance			`xml:"maintenance,omitempty"`
 	FilesProcesses			*PolicyFilesProcesses		`xml:"files_processes,omitempty"`
