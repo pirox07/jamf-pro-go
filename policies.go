@@ -387,12 +387,12 @@ type PolicyDiskEncryption struct {
 }
 
 type GetPoliciesResult struct {
-	Size	int32				`xml:"size,omitempty"`
+	Size	uint32				`xml:"size,omitempty"`
 	Policy	[]PolicyOverview 	`xml:"policy,omitempty"`
 }
 
 type PolicyOverview struct {
-	ID 		int32	`xml:"id,omitempty"`
+	ID 		uint32	`xml:"id,omitempty"`
 	Name	string	`xml:"name,omitempty"`
 }
 
