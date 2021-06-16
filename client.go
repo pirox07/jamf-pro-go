@@ -15,15 +15,15 @@ import (
 )
 
 const (
-	APIPathClassic	= "/JSSResource/"
-	APIPathV1		= "/uapi/"
+	APIPathClassic = "/JSSResource/"
+	APIPathV1      = "/uapi/"
 )
 
 type Config struct {
-	BaseURL		string
-	Log 		Logger
-	//baseURL		*url.URL
-	v1ApiToken		string
+	BaseURL         string
+	Log             Logger
+	//baseURL       *url.URL
+	v1ApiToken        string
 	classicApiToken	string
 }
 

@@ -10,13 +10,13 @@ import (
 )
 
 const (
-	APIVersionScripts	= "v1"
-	APIPathScripts		= "scripts"
+	APIVersionScripts    = "v1"
+	APIPathScripts        = "scripts"
 )
 
 type Scripts struct {
-	TotalCount	uint32		`json:"totalCount"`
-	Results		[]Script	`json:"results"`
+	TotalCount    uint32        `json:"totalCount"`
+	Results        []Script    `json:"results"`
 }
 
 type Script struct {

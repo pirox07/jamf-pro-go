@@ -8,8 +8,8 @@ import (
 )
 
 const (
-	APIVersionPolicies	= "classic"
-	APIPathPolices		= "policies"
+	APIVersionPolicies    = "classic"
+	APIPathPolices        = "policies"
 )
 
 type Policy struct {
@@ -20,7 +20,7 @@ type Policy struct {
 	Scripts               *PolicyScripts              `xml:"scripts,omitempty"`
 	Printers              *PolicyPrinters             `xml:"printers,omitempty"`
 	DockItems             *PolicyDockItems            `xml:"dock_items,omitempty"`
-	AccountMaintenance	  *PolicyAccountMaintenance   `xml:"account_maintenance,omitempty"`
+	AccountMaintenance    *PolicyAccountMaintenance   `xml:"account_maintenance,omitempty"`
 	Maintenance           *PolicyMaintenance          `xml:"maintenance,omitempty"`
 	FilesProcesses        *PolicyFilesProcesses       `xml:"files_processes,omitempty"`
 	UserInteraction       *PolicyUserInteraction      `xml:"user_interaction,omitempty"`
@@ -46,7 +46,7 @@ type PolicyGeneral struct {
 	NotifyOnEachFailedRetry     bool                        `xml:"notify_on_each_failed_retry,omitempty"`
 	LocationUserOnly            string                      `xml:"location_user_only,omitempty"`
 	TargetDrive                 string                      `xml:"target_drive,omitempty"`
-	Category                    *PolicyCategory	            `xml:"category,omitempty"`
+	Category                    *PolicyCategory             `xml:"category,omitempty"`
 	DateTimeLimitations         *PolicyDateTimeLimitations  `xml:"date_time_limitations,omitempty"`
 	NetworkLimitations          *PolicyNetworkLimitations   `xml:"network_limitations,omitempty"`
 	OverrideDefaultSettings     *PolicyOverrides            `xml:"override_default_settings,omitempty"`
@@ -72,8 +72,8 @@ type PolicyDateTimeLimitations struct {
 }
 
 type PolicyNetworkLimitations struct {
-	MinimumNetworkConnection	string	`xml:"minimum_network_connection,omitempty"` // Enum: [ No Minimum, Ethernet ]
-	AnyIPAddress             	bool	`xml:"any_ip_address,omitempty"`
+	MinimumNetworkConnection  string `xml:"minimum_network_connection,omitempty"` // Enum: [ No Minimum, Ethernet ]
+	AnyIPAddress              bool   `xml:"any_ip_address,omitempty"`
 }
 
 // PolicyOverrideDefaultSettings contains overrides for the policy's default config
@@ -86,7 +86,7 @@ type PolicyOverrides struct {
 }
 
 type PolicySite struct {
-	ID    int32	 `xml:"id,omitempty"`  // default: -1
+	ID    int32  `xml:"id,omitempty"`  // default: -1
 	Name  string `xml:"name,omitempty"`
 }
 
@@ -375,7 +375,7 @@ type PolicyUserInteraction struct {
 type PolicyDiskEncryption struct {
 	Action                                  string `xml:"action,omitempty"` // [ apply, remediate ]
 	DiskEncryptionConfigurationID           uint32 `xml:"disk_encryption_configuration_id,omitempty"`
-	AuthRestart	                            bool   `xml:"auth_restart,omitempty"` // [ Individual, Institutional, Individual And Institutional ]
+	AuthRestart                             bool   `xml:"auth_restart,omitempty"` // [ Individual, Institutional, Individual And Institutional ]
 	RemediateKeyType                        string `xml:"remediate_key_type,omitempty"`
 	RemediateDiskEncryptionConfigurationID  uint32 `xml:"remediate_disk_encryption_configuration_id,omitempty"`
 }
