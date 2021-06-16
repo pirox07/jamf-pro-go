@@ -164,10 +164,10 @@ type UpdateScriptParams struct {
 	ScriptContents string `json:"scriptContents,omitempty"`
 }
 
-func (c *Client) UpdateScript (scriptID string, params UpdateScriptParams) (*Script, error) {
+func (c *Client) UpdateScript (scriptID uint32, params UpdateScriptParams) (*Script, error) {
 	var result Script
 
-	err := c.call(path.Join(APIVersionScripts, APIPathScripts, scriptID), http.MethodPut,
+	err := c.call(path.Join(APIVersionScripts, APIPathScripts, fmt.Sprint(scriptID)), http.MethodPut,
 		APIVersionScripts, nil, params, &result)
 	if err != nil {
 		return nil, err
@@ -176,8 +176,8 @@ func (c *Client) UpdateScript (scriptID string, params UpdateScriptParams) (*Scr
 	return &result, nil
 }
 
-func (c *Client) DeleteScript (scriptID string) error {
-	err := c.call(path.Join(APIVersionScripts, APIPathScripts, scriptID), http.MethodDelete,
+func (c *Client) DeleteScript (scriptID uint32) error {
+	err := c.call(path.Join(APIVersionScripts, APIPathScripts, fmt.Sprint(scriptID)), http.MethodDelete,
 		APIVersionScripts, nil, nil, nil)
 	if err != io.EOF {
 		return err

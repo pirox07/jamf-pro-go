@@ -78,10 +78,10 @@ func main() {
 
 	/*
 	// UpdateScript
-	updateScriptID := "54"
+	var updateScriptID uint32 = 56
 	updateScriptParams := &jamf.UpdateScriptParams{
 		// Script ID
-		//ID: "54",
+		//ID: 54,
 		Name: "test_script_update.sh.sh",
 		Info: "hogehoge",
 		Notes: "fugafuga",
@@ -111,7 +111,7 @@ func main() {
 
 	/*
 	// DeleteScript
-	err = client.DeleteScript("54")
+	err = client.DeleteScript(54)
 	if err != nil{
 		fmt.Println(err.Error())
 	}
