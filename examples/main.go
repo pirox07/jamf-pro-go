@@ -46,7 +46,7 @@ func main() {
 
 	/*
 	// CreateScript
-	createScriptParams := &jamf.CreateScriptParams{
+	scriptParams := &jamf.ScriptParams{
 		// Script ID
 		//ID: "0",
 		Name: "test_script.sh",
@@ -68,7 +68,7 @@ func main() {
 		OsRequirements: "10.15.x",
 		ScriptContents: "#!/bin/bash\n\necho \"Trivial script.\"",
 	}
-	createScriptResult, err := client.CreateScript(*createScriptParams)
+	createScriptResult, err := client.CreateScript(*scriptParams)
 	if err !=nil{
 		fmt.Println(err.Error())
 	}
@@ -79,7 +79,7 @@ func main() {
 	/*
 	// UpdateScript
 	var updateScriptID uint32 = 56
-	updateScriptParams := &jamf.UpdateScriptParams{
+	scriptParams := &jamf.ScriptParams{
 		// Script ID
 		//ID: 54,
 		Name: "test_script_update.sh.sh",
@@ -101,7 +101,7 @@ func main() {
 		//OsRequirements: "10.15.x",
 		ScriptContents: "#!/bin/bash\n\necho \"Script is updated.\"",
 	}
-	updateScriptResult, err := client.UpdateScript(updateScriptID, *updateScriptParams)
+	updateScriptResult, err := client.UpdateScript(updateScriptID, *scriptParams)
 	if err !=nil{
 		fmt.Println(err.Error())
 	}

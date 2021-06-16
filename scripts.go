@@ -81,7 +81,7 @@ type CreateScriptResult struct {
 	Href  string `json:"href"`
 }
 
-type CreateScriptParams struct {
+type ScriptParams struct {
 	ID              string `json:"id,omitempty"`
 	Name            string `json:"name"`
 	Info            string `json:"info,omitempty"`
@@ -101,7 +101,7 @@ type CreateScriptParams struct {
 	ScriptContents  string `json:"scriptContents,omitempty"`
 }
 
-func (c *Client) CreateScript (params CreateScriptParams) (*CreateScriptResult, error) {
+func (c *Client) CreateScript (params ScriptParams) (*CreateScriptResult, error) {
 	var result CreateScriptResult
 
 	err := c.call(path.Join(APIVersionScripts, APIPathScripts), http.MethodPost,
@@ -113,28 +113,7 @@ func (c *Client) CreateScript (params CreateScriptParams) (*CreateScriptResult, 
 	return &result, nil
 }
 
-
-type UpdateScriptParams struct {
-	ID              string `json:"id,omitempty"`
-	Name            string `json:"name,omitempty"`
-	Info            string `json:"info,omitempty"`
-	Notes           string `json:"notes,omitempty"`
-	Priority        string `json:"priority,omitempty"` // [ BEFORE, AFTER, AT_REBOOT ] (default: BEFORE)
-	CategoryID      string `json:"categoryId"`
-	CategoryName    string `json:"categoryName,omitempty"`
-	Parameter4      string `json:"parameter4,omitempty"`
-	Parameter5      string `json:"parameter5,omitempty"`
-	Parameter6      string `json:"parameter6,omitempty"`
-	Parameter7      string `json:"parameter7,omitempty"`
-	Parameter8      string `json:"parameter8,omitempty"`
-	Parameter9      string `json:"parameter9,omitempty"`
-	Parameter10     string `json:"parameter10,omitempty"`
-	Parameter11     string `json:"parameter11,omitempty"`
-	OsRequirements  string `json:"osRequirements,omitempty"`
-	ScriptContents  string `json:"scriptContents,omitempty"`
-}
-
-func (c *Client) UpdateScript (scriptID uint32, params UpdateScriptParams) (*Script, error) {
+func (c *Client) UpdateScript (scriptID uint32, params ScriptParams) (*Script, error) {
 	var result Script
 
 	err := c.call(path.Join(APIVersionScripts, APIPathScripts, fmt.Sprint(scriptID)), http.MethodPut,
