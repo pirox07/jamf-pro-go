@@ -20,41 +20,31 @@ type Scripts struct {
 }
 
 type Script struct {
-	// Script ID
-	ID             string `json:"id"`
-	// Display name
-	Name           string `json:"name"`
-	// Information to be displayed to the administrator when the script is run
-	Info           string `json:"info"`
-	// Notes to be displayed about the script (e.g. author, creation date)
-	Notes          string `json:"notes"`
-	// Priority to be used for executing scripts related to other actions
-	// [ BEFORE, AFTER, AT_REBOOT ]
-	Priority       string `json:"priority"`
-	// Category to which the script will be added
-	CategoryID     string `json:"categoryId"`
-	CategoryName   string `json:"categoryName"`
-	// Parameter label Names
-	Parameter4     string `json:"parameter4"`
-	Parameter5     string `json:"parameter5"`
-	Parameter6     string `json:"parameter6"`
-	Parameter7     string `json:"parameter7"`
-	Parameter8     string `json:"parameter8"`
-	Parameter9     string `json:"parameter9"`
-	Parameter10    string `json:"parameter10"`
-	Parameter11    string `json:"parameter11"`
-	// Operating system requirements (e.g., "10.6.8, 10.7.x, 10.8")
-	OsRequirements string `json:"osRequirements"`
-	// Script code
-	ScriptContents string `json:"scriptContents"`
+	ID              string `json:"id"`
+	Name            string `json:"name"`
+	Info            string `json:"info"`
+	Notes           string `json:"notes"`
+	Priority        string `json:"priority"` // [ BEFORE, AFTER, AT_REBOOT ] (default: BEFORE)
+	CategoryID      string `json:"categoryId"`
+	CategoryName    string `json:"categoryName"`
+	Parameter4      string `json:"parameter4"`
+	Parameter5      string `json:"parameter5"`
+	Parameter6      string `json:"parameter6"`
+	Parameter7      string `json:"parameter7"`
+	Parameter8      string `json:"parameter8"`
+	Parameter9      string `json:"parameter9"`
+	Parameter10     string `json:"parameter10"`
+	Parameter11     string `json:"parameter11"`
+	OsRequirements  string `json:"osRequirements"`
+	ScriptContents  string `json:"scriptContents"`
 }
 
 
 type GetScriptsOpts struct {
-	Page  		uint32		`url:"page,omitempty"`
-	PageSize	uint32		`url:"page-size,omitempty"`
-	Sort		[]string	`url:"sort,omitempty"`
-	Filter		string		`url:"filter,omitempty"`
+	Page      uint32   `url:"page,omitempty"`
+	PageSize  uint32   `url:"page-size,omitempty"`
+	Sort      []string `url:"sort,omitempty"`
+	Filter    string   `url:"filter,omitempty"`
 }
 
 func (c *Client) GetScripts(opts GetScriptsOpts) (*Scripts, error) {
@@ -87,38 +77,28 @@ func (c *Client) GetScript(scriptID uint32) (*Script, error) {
 }
 
 type CreateScriptResult struct {
-	ID		string	`json:"id"`
-	Href	string	`json:"href"`
+	ID    string `json:"id"`
+	Href  string `json:"href"`
 }
 
 type CreateScriptParams struct {
-	// Script ID
-	ID             string `json:"id,omitempty"`
-	// Display name
-	Name           string `json:"name"`
-	// Information to be displayed to the administrator when the script is run
-	Info           string `json:"info,omitempty"`
-	// Notes to be displayed about the script (e.g. author, creation date)
-	Notes          string `json:"notes,omitempty"`
-	// Priority to be used for executing scripts related to other actions
-	// [ BEFORE, AFTER, AT_REBOOT ] (default: BEFORE)
-	Priority       string `json:"priority,omitempty"`
-	// Category to which the script will be added
-	CategoryID     string `json:"categoryId"`
-	CategoryName   string `json:"categoryName,omitempty"`
-	// Parameter label Names
-	Parameter4     string `json:"parameter4,omitempty"`
-	Parameter5     string `json:"parameter5,omitempty"`
-	Parameter6     string `json:"parameter6,omitempty"`
-	Parameter7     string `json:"parameter7,omitempty"`
-	Parameter8     string `json:"parameter8,omitempty"`
-	Parameter9     string `json:"parameter9,omitempty"`
-	Parameter10    string `json:"parameter10,omitempty"`
-	Parameter11    string `json:"parameter11,omitempty"`
-	// Operating system requirements (e.g., "10.6.8, 10.7.x, 10.8")
-	OsRequirements string `json:"osRequirements,omitempty"`
-	// Script code
-	ScriptContents string `json:"scriptContents,omitempty"`
+	ID              string `json:"id,omitempty"`
+	Name            string `json:"name"`
+	Info            string `json:"info,omitempty"`
+	Notes           string `json:"notes,omitempty"`
+	Priority        string `json:"priority,omitempty"` // [ BEFORE, AFTER, AT_REBOOT ] (default: BEFORE)
+	CategoryID      string `json:"categoryId"`
+	CategoryName    string `json:"categoryName,omitempty"`
+	Parameter4      string `json:"parameter4,omitempty"`
+	Parameter5      string `json:"parameter5,omitempty"`
+	Parameter6      string `json:"parameter6,omitempty"`
+	Parameter7      string `json:"parameter7,omitempty"`
+	Parameter8      string `json:"parameter8,omitempty"`
+	Parameter9      string `json:"parameter9,omitempty"`
+	Parameter10     string `json:"parameter10,omitempty"`
+	Parameter11     string `json:"parameter11,omitempty"`
+	OsRequirements  string `json:"osRequirements,omitempty"`
+	ScriptContents  string `json:"scriptContents,omitempty"`
 }
 
 func (c *Client) CreateScript (params CreateScriptParams) (*CreateScriptResult, error) {
@@ -135,33 +115,23 @@ func (c *Client) CreateScript (params CreateScriptParams) (*CreateScriptResult, 
 
 
 type UpdateScriptParams struct {
-	// Script ID
-	ID             string `json:"id,omitempty"`
-	// Display name
-	Name           string `json:"name,omitempty"`
-	// Information to be displayed to the administrator when the script is run
-	Info           string `json:"info,omitempty"`
-	// Notes to be displayed about the script (e.g. author, creation date)
-	Notes          string `json:"notes,omitempty"`
-	// Priority to be used for executing scripts related to other actions
-	// [ BEFORE, AFTER, AT_REBOOT ] (default: BEFORE)
-	Priority       string `json:"priority,omitempty"`
-	// Category to which the script will be added
-	CategoryID     string `json:"categoryId"`
-	CategoryName   string `json:"categoryName,omitempty"`
-	// Parameter label Names
-	Parameter4     string `json:"parameter4,omitempty"`
-	Parameter5     string `json:"parameter5,omitempty"`
-	Parameter6     string `json:"parameter6,omitempty"`
-	Parameter7     string `json:"parameter7,omitempty"`
-	Parameter8     string `json:"parameter8,omitempty"`
-	Parameter9     string `json:"parameter9,omitempty"`
-	Parameter10    string `json:"parameter10,omitempty"`
-	Parameter11    string `json:"parameter11,omitempty"`
-	// Operating system requirements (e.g., "10.6.8, 10.7.x, 10.8")
-	OsRequirements string `json:"osRequirements,omitempty"`
-	// Script code
-	ScriptContents string `json:"scriptContents,omitempty"`
+	ID              string `json:"id,omitempty"`
+	Name            string `json:"name,omitempty"`
+	Info            string `json:"info,omitempty"`
+	Notes           string `json:"notes,omitempty"`
+	Priority        string `json:"priority,omitempty"` // [ BEFORE, AFTER, AT_REBOOT ] (default: BEFORE)
+	CategoryID      string `json:"categoryId"`
+	CategoryName    string `json:"categoryName,omitempty"`
+	Parameter4      string `json:"parameter4,omitempty"`
+	Parameter5      string `json:"parameter5,omitempty"`
+	Parameter6      string `json:"parameter6,omitempty"`
+	Parameter7      string `json:"parameter7,omitempty"`
+	Parameter8      string `json:"parameter8,omitempty"`
+	Parameter9      string `json:"parameter9,omitempty"`
+	Parameter10     string `json:"parameter10,omitempty"`
+	Parameter11     string `json:"parameter11,omitempty"`
+	OsRequirements  string `json:"osRequirements,omitempty"`
+	ScriptContents  string `json:"scriptContents,omitempty"`
 }
 
 func (c *Client) UpdateScript (scriptID uint32, params UpdateScriptParams) (*Script, error) {
