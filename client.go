@@ -20,17 +20,17 @@ const (
 )
 
 type Config struct {
-	BaseURL         string
-	Log             Logger
-	//baseURL       *url.URL
-	v1ApiToken        string
-	classicApiToken	string
+	BaseURL          string
+	Log              Logger
+	//baseURL          *url.URL
+	v1ApiToken       string
+	classicApiToken  string
 }
 
 // V1Token is the response to the Jamf API Token request.
 type V1Token struct {
-	Token	string	`json:"token"`
-	Expires	uint64	`json:"expires"`
+	Token    string `json:"token"`
+	Expires  uint64 `json:"expires"`
 }
 
 func NewConfig(url, userName, password string) (*Config, error) {

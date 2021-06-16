@@ -55,20 +55,20 @@ type PolicyGeneral struct {
 }
 
 type PolicyCategory struct {
-	ID    int32  `xml:"id,omitempty"`	// default: -1
-	Name  string `xml:"name,omitempty"`	// default: Unknown
+	ID    int32  `xml:"id,omitempty"` // default: -1
+	Name  string `xml:"name,omitempty"` // default: Unknown
 }
 
 type PolicyDateTimeLimitations struct {
-	ActivationDate      string	`xml:"activation_date,omitempty"`
-	ActivationDateEpoch uint64	`xml:"activation_date_epoch,omitempty"`
-	ActivationDateUtc   string	`xml:"activation_date_utc,omitempty"`
-	ExpirationDate      string 	`xml:"expiration_date,omitempty"`
-	ExpirationDateEpoch uint64	`xml:"expiration_date_epoch,omitempty"`
-	ExpirationDateUtc   string 	`xml:"expiration_date_utc,omitempty"`
-	NoExecuteOn         string 	`xml:"no_execute_on,omitempty"` // Enum: [ Sun, Mon, Tue, Wed, Thu, Fri, Sat ]
-	NoExecuteStart      string 	`xml:"no_execute_start,omitempty"`
-	NoExecuteEnd        string 	`xml:"no_execute_end,omitempty"`
+	ActivationDate      string `xml:"activation_date,omitempty"`
+	ActivationDateEpoch uint64 `xml:"activation_date_epoch,omitempty"`
+	ActivationDateUtc   string `xml:"activation_date_utc,omitempty"`
+	ExpirationDate      string `xml:"expiration_date,omitempty"`
+	ExpirationDateEpoch uint64 `xml:"expiration_date_epoch,omitempty"`
+	ExpirationDateUtc   string `xml:"expiration_date_utc,omitempty"`
+	NoExecuteOn         string `xml:"no_execute_on,omitempty"` // Enum: [ Sun, Mon, Tue, Wed, Thu, Fri, Sat ]
+	NoExecuteStart      string `xml:"no_execute_start,omitempty"`
+	NoExecuteEnd        string `xml:"no_execute_end,omitempty"`
 }
 
 type PolicyNetworkLimitations struct {
@@ -76,7 +76,6 @@ type PolicyNetworkLimitations struct {
 	AnyIPAddress              bool   `xml:"any_ip_address,omitempty"`
 }
 
-// PolicyOverrideDefaultSettings contains overrides for the policy's default config
 type PolicyOverrides struct {
 	TargetDrive         string `xml:"target_drive,omitempty"`
 	DistributionPoint   string `xml:"distribution_point,omitempty"`
@@ -360,7 +359,7 @@ type PolicyFilesProcesses struct {
 	UpdateLocateDatabase  bool   `xml:"update_locate_database,omitempty"`
 	SpotlightSearch       string `xml:"spotlight_search,omitempty"`
 	SearchForProcess      string `xml:"search_for_process,omitempty"`
-	KillProcess           bool	 `xml:"kill_process,omitempty"`
+	KillProcess           bool   `xml:"kill_process,omitempty"`
 	RunCommand            string `xml:"run_command,omitempty"`
 }
 
@@ -415,19 +414,19 @@ func (c *Client) GetPolicy(policyID uint32) (*Policy, error) {
 }
 
 type CreatePolicyParams struct {
-	XMLName              	xml.Name                  	`xml:"policy,omitempty"`
-	General					*PolicyGeneral				`xml:"general,omitempty"`
-	Scope					*PolicyScope				`xml:"scope,omitempty"`
-	SelfService				*PolicySelfService			`xml:"self_service,omitempty"`
-	PackageConfiguration	*PolicyPackageConfiguration	`xml:"package_configuration,omitempty"`
-	Scripts					*PolicyScripts				`xml:"scripts,omitempty"`
-	Printers				*PolicyPrinters				`xml:"printers,omitempty"`
-	DockItems				*PolicyDockItems			`xml:"dock_items,omitempty"`
-	AccountMaintenance		*PolicyAccountMaintenance	`xml:"account_maintenance,omitempty"`
-	Maintenance				*PolicyMaintenance			`xml:"maintenance,omitempty"`
-	FilesProcesses			*PolicyFilesProcesses		`xml:"files_processes,omitempty"`
-	UserInteraction			*PolicyUserInteraction		`xml:"user_interaction,omitempty"`
-	DiskEncryption			*PolicyDiskEncryption		`xml:"disk_encryption,omitempty"`
+	XMLName               xml.Name                    `xml:"policy,omitempty"`
+	General               *PolicyGeneral              `xml:"general,omitempty"`
+	Scope                 *PolicyScope                `xml:"scope,omitempty"`
+	SelfService           *PolicySelfService          `xml:"self_service,omitempty"`
+	PackageConfiguration  *PolicyPackageConfiguration `xml:"package_configuration,omitempty"`
+	Scripts               *PolicyScripts              `xml:"scripts,omitempty"`
+	Printers              *PolicyPrinters             `xml:"printers,omitempty"`
+	DockItems             *PolicyDockItems            `xml:"dock_items,omitempty"`
+	AccountMaintenance    *PolicyAccountMaintenance   `xml:"account_maintenance,omitempty"`
+	Maintenance           *PolicyMaintenance          `xml:"maintenance,omitempty"`
+	FilesProcesses        *PolicyFilesProcesses       `xml:"files_processes,omitempty"`
+	UserInteraction       *PolicyUserInteraction      `xml:"user_interaction,omitempty"`
+	DiskEncryption        *PolicyDiskEncryption       `xml:"disk_encryption,omitempty"`
 }
 
 type CreatePolicyResult struct {
@@ -449,24 +448,24 @@ func (c *Client) CreatePolicy (params *CreatePolicyParams) (*CreatePolicyResult,
 
 
 type UpdatePolicyParams struct {
-	XMLName              	xml.Name                  	`xml:"policy,omitempty"`
-	General					*PolicyGeneral				`xml:"general,omitempty"`
-	Scope					*PolicyScope				`xml:"scope,omitempty"`
-	SelfService				*PolicySelfService			`xml:"self_service,omitempty"`
-	PackageConfiguration	*PolicyPackageConfiguration	`xml:"package_configuration,omitempty"`
-	Scripts					*PolicyScripts				`xml:"scripts,omitempty"`
-	Printers				*PolicyPrinters				`xml:"printers,omitempty"`
-	DockItems				*PolicyDockItems			`xml:"dock_items,omitempty"`
-	AccountMaintenance		*PolicyAccountMaintenance	`xml:"account_maintenance,omitempty"`
-	Maintenance				*PolicyMaintenance			`xml:"maintenance,omitempty"`
-	FilesProcesses			*PolicyFilesProcesses		`xml:"files_processes,omitempty"`
-	UserInteraction			*PolicyUserInteraction		`xml:"user_interaction,omitempty"`
-	DiskEncryption			*PolicyDiskEncryption		`xml:"disk_encryption,omitempty"`
+	XMLName               xml.Name                    `xml:"policy,omitempty"`
+	General               *PolicyGeneral              `xml:"general,omitempty"`
+	Scope                 *PolicyScope                `xml:"scope,omitempty"`
+	SelfService           *PolicySelfService          `xml:"self_service,omitempty"`
+	PackageConfiguration  *PolicyPackageConfiguration `xml:"package_configuration,omitempty"`
+	Scripts               *PolicyScripts              `xml:"scripts,omitempty"`
+	Printers              *PolicyPrinters             `xml:"printers,omitempty"`
+	DockItems             *PolicyDockItems            `xml:"dock_items,omitempty"`
+	AccountMaintenance    *PolicyAccountMaintenance   `xml:"account_maintenance,omitempty"`
+	Maintenance           *PolicyMaintenance          `xml:"maintenance,omitempty"`
+	FilesProcesses        *PolicyFilesProcesses       `xml:"files_processes,omitempty"`
+	UserInteraction       *PolicyUserInteraction      `xml:"user_interaction,omitempty"`
+	DiskEncryption        *PolicyDiskEncryption       `xml:"disk_encryption,omitempty"`
 }
 
 type UpdatePolicyResult struct {
-	XMLName	xml.Name	`xml:"policy,omitempty"`
-	ID		uint32		`xml:"id,omitempty"`
+	XMLName  xml.Name `xml:"policy,omitempty"`
+	ID       uint32   `xml:"id,omitempty"`
 }
 
 func (c *Client) UpdatePolicy (policyID uint32, params *UpdatePolicyParams) (*UpdatePolicyResult, error) {
