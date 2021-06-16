@@ -40,7 +40,7 @@ func main() {
 
 - [Jamf Pro API](https://www.jamf.com/developers/apis/jamf-pro/reference/)
 - [Jamf Classic API](https://www.jamf.com/developers/apis/classic/reference/)
-- [Jamf Pro の API Client をつくった(予定)](https://note.com/pirox/n/n6b08712720a2)
+- [Jamf Pro の API Client をつくった](https://note.com/pirox/n/n6b08712720a2)
 
 ## APIs
 
@@ -51,7 +51,7 @@ func main() {
   - `PUT /policies/id/{id}`: Updates an existing policy by ID
   - `DELETE /policies/id/{id}`: Deletes a policy by ID
 
-- Scrips
+- [Scrips](https://www.jamf.com/developers/apis/jamf-pro/reference/#/scripts)
   - `GET /v1/scripts`: Search for sorted and paged Scripts
   - `GET /v1/scripts/{id}`: Retrieve a full script object
   - `POST /v1/scripts/{id}`: Creates a script
