@@ -284,7 +284,7 @@ type PolicyPrinters struct {
 
 type PolicyPrinter struct {
 	ID			uint32	`xml:"id,omitempty"`
-	Name		uint32	`xml:"name,omitempty"`
+	Name		string	`xml:"name,omitempty"`
 	Action		string	`xml:"action,omitempty"` // [ install, uninstall ]
 	MakeDefault	string	`xml:"make_default,omitempty"`
 }
