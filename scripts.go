@@ -101,7 +101,7 @@ type ScriptParams struct {
 	ScriptContents  string `json:"scriptContents,omitempty"`
 }
 
-func (c *Client) CreateScript (params ScriptParams) (*CreateScriptResult, error) {
+func (c *Client) CreateScript (params Script) (*CreateScriptResult, error) {
 	var result CreateScriptResult
 
 	err := c.call(path.Join(APIVersionScripts, APIPathScripts), http.MethodPost,
@@ -113,7 +113,7 @@ func (c *Client) CreateScript (params ScriptParams) (*CreateScriptResult, error)
 	return &result, nil
 }
 
-func (c *Client) UpdateScript (scriptID uint32, params ScriptParams) (*Script, error) {
+func (c *Client) UpdateScript (scriptID uint32, params Script) (*Script, error) {
 	var result Script
 
 	err := c.call(path.Join(APIVersionScripts, APIPathScripts, fmt.Sprint(scriptID)), http.MethodPut,
