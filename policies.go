@@ -21,6 +21,7 @@ type Policy struct {
 	Printers              *PolicyPrinters             `xml:"printers,omitempty"`
 	DockItems             *PolicyDockItems            `xml:"dock_items,omitempty"`
 	AccountMaintenance    *PolicyAccountMaintenance   `xml:"account_maintenance,omitempty"`
+	RebootSettings        *PolicyRebootSettings       `xml:"reboot,omitempty"`
 	Maintenance           *PolicyMaintenance          `xml:"maintenance,omitempty"`
 	FilesProcesses        *PolicyFilesProcesses       `xml:"files_processes,omitempty"`
 	UserInteraction       *PolicyUserInteraction      `xml:"user_interaction,omitempty"`
@@ -339,6 +340,17 @@ type PolicyOpenFirmwareEfiPassword struct {
 	OfPassword  string `xml:"of_password,omitempty"`
 }
 
+type PolicyRebootSettings struct {
+	Message                      string `xml:"message"`
+	StartupDisk                  string `xml:"startup_disk"`
+	SpecifyStartup               string `xml:"specify_startup"`
+	NoUserLoggedIn               string `xml:"no_user_logged_in"`
+	UserLoggedIn                 string `xml:"user_logged_in"`
+	MinutesUntilReboot           int32  `xml:"minutes_until_reboot"`
+	StartRebootTimerImmediately  bool  `xml:"start_reboot_timer_immediately"`
+	FileVaultReboot              bool   `xml:"file_value_2_reboot"`
+}
+
 type PolicyMaintenance struct {
 	Recon                     bool `xml:"recon,omitempty"`
 	ResetName                 bool `xml:"reset_name,omitempty"`
@@ -423,6 +435,7 @@ type CreatePolicyParams struct {
 	Printers              *PolicyPrinters             `xml:"printers,omitempty"`
 	DockItems             *PolicyDockItems            `xml:"dock_items,omitempty"`
 	AccountMaintenance    *PolicyAccountMaintenance   `xml:"account_maintenance,omitempty"`
+	RebootSettings        *PolicyRebootSettings       `xml:"reboot,omitempty"` // Current Startup Disk, Specify Local Startup Disk, Currently Selected Startup Disk (No Bless), NetBoot, macOS Installer
 	Maintenance           *PolicyMaintenance          `xml:"maintenance,omitempty"`
 	FilesProcesses        *PolicyFilesProcesses       `xml:"files_processes,omitempty"`
 	UserInteraction       *PolicyUserInteraction      `xml:"user_interaction,omitempty"`
@@ -457,6 +470,7 @@ type UpdatePolicyParams struct {
 	Printers              *PolicyPrinters             `xml:"printers,omitempty"`
 	DockItems             *PolicyDockItems            `xml:"dock_items,omitempty"`
 	AccountMaintenance    *PolicyAccountMaintenance   `xml:"account_maintenance,omitempty"`
+	RebootSettings        *PolicyRebootSettings       `xml:"reboot,omitempty"`
 	Maintenance           *PolicyMaintenance          `xml:"maintenance,omitempty"`
 	FilesProcesses        *PolicyFilesProcesses       `xml:"files_processes,omitempty"`
 	UserInteraction       *PolicyUserInteraction      `xml:"user_interaction,omitempty"`
