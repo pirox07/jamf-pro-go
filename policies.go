@@ -13,6 +13,7 @@ const (
 )
 
 type Policy struct {
+	XMLName               xml.Name                    `xml:"policy,omitempty"`
 	General               *PolicyGeneral              `xml:"general,omitempty"`
 	Scope                 *PolicyScope                `xml:"scope,omitempty"`
 	SelfService           *PolicySelfService          `xml:"self_service,omitempty"`
