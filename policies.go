@@ -14,11 +14,11 @@ const (
 
 type Policy struct {
 	XMLName               xml.Name                    `xml:"policy,omitempty"`
-	General               *PolicyGeneral              `xml:"general,omitempty"`
+	General               *PolicyGeneral              `yaml:"general" xml:"general,omitempty"`
 	Scope                 *PolicyScope                `xml:"scope,omitempty"`
 	SelfService           *PolicySelfService          `xml:"self_service,omitempty"`
 	PackageConfiguration  *PolicyPackageConfiguration `xml:"package_configuration,omitempty"`
-	Scripts               *PolicyScripts              `xml:"scripts,omitempty"`
+	Scripts               *PolicyScripts              `yaml:"scripts" xml:"scripts,omitempty"`
 	Printers              *PolicyPrinters             `xml:"printers,omitempty"`
 	DockItems             *PolicyDockItems            `xml:"dock_items,omitempty"`
 	AccountMaintenance    *PolicyAccountMaintenance   `xml:"account_maintenance,omitempty"`
@@ -30,30 +30,30 @@ type Policy struct {
 }
 
 type PolicyGeneral struct {
-	ID                          uint32                      `xml:"id,omitempty"`
-	Name                        string                      `xml:"name,omitempty"`
-	Enabled                     bool                        `xml:"enabled"`
-	Trigger                     string                      `xml:"trigger,omitempty"`
-	TriggerCheckin              bool                        `xml:"trigger_checkin"`
-	TriggerEnrollmentComplete   bool                        `xml:"trigger_enrollment_complete"`
-	TriggerLogin                bool                        `xml:"trigger_login"`
-	TriggerLogout               bool                        `xml:"trigger_logout"`
-	TriggerNetworkStateChanged  bool                        `xml:"trigger_network_state_changed"`
-	TriggerStartup              bool                        `xml:"trigger_startup"`
-	TriggerOther                string                      `xml:"trigger_other,omitempty"`
-	Frequency                   string                      `xml:"frequency,omitempty"`
-	Offline                     bool                        `xml:"offline"`
-	RetryEvent                  string                      `xml:"retry_event,omitempty"`
-	RetryAttempts               int32                       `xml:"retry_attempts,omitempty"`
-	NotifyOnEachFailedRetry     bool                        `xml:"notify_on_each_failed_retry"`
-	LocationUserOnly            string                      `xml:"location_user_only,omitempty"`
-	TargetDrive                 string                      `xml:"target_drive,omitempty"`
-	Category                    *PolicyCategory             `xml:"category,omitempty"`
-	DateTimeLimitations         *PolicyDateTimeLimitations  `xml:"date_time_limitations,omitempty"`
-	NetworkLimitations          *PolicyNetworkLimitations   `xml:"network_limitations,omitempty"`
-	OverrideDefaultSettings     *PolicyOverrides            `xml:"override_default_settings,omitempty"`
-	NetworkRequirements         string                      `xml:"network_requirements,omitempty"`
-	Site                        *PolicySite                 `xml:"site,omitempty"`
+	ID                          uint32                      `yaml:"id" xml:"id,omitempty"`
+	Name                        string                      `yaml:"name" xml:"name,omitempty"`
+	Enabled                     bool                        `yaml:"enabled" xml:"enabled"`
+	Trigger                     string                      `yaml:"trigger" xml:"trigger,omitempty"`
+	TriggerCheckin              bool                        `yaml:"trigger_checkin" xml:"trigger_checkin"`
+	TriggerEnrollmentComplete   bool                        `yaml:"trigger_enrollment_complete" xml:"trigger_enrollment_complete"`
+	TriggerLogin                bool                        `yaml:"trigger_login" xml:"trigger_login"`
+	TriggerLogout               bool                        `yaml:"trigger_logout" xml:"trigger_logout"`
+	TriggerNetworkStateChanged  bool                        `yaml:"trigger_network_state_changed" xml:"trigger_network_state_changed"`
+	TriggerStartup              bool                        `yaml:"trigger_startup" xml:"trigger_startup"`
+	TriggerOther                string                      `yaml:"trigger_other" xml:"trigger_other,omitempty"`
+	Frequency                   string                      `yaml:"frequency" xml:"frequency,omitempty"`
+	Offline                     bool                        `yaml:"offline" xml:"offline"`
+	RetryEvent                  string                      `yaml:"retry_event" xml:"retry_event,omitempty"`
+	RetryAttempts               int32                       `yaml:"retry_attempts" xml:"retry_attempts,omitempty"`
+	NotifyOnEachFailedRetry     bool                        `yaml:"notify_on_each_failed_retry" xml:"notify_on_each_failed_retry"`
+	LocationUserOnly            string                      `yaml:"location_user_only" xml:"location_user_only,omitempty"`
+	TargetDrive                 string                      `yaml:"target_drive" xml:"target_drive,omitempty"`
+	Category                    *PolicyCategory             `yaml:"category" xml:"category,omitempty"`
+	DateTimeLimitations         *PolicyDateTimeLimitations  `yaml:"date_time_limitations" xml:"date_time_limitations,omitempty"`
+	NetworkLimitations          *PolicyNetworkLimitations   `yaml:"network_limitations" xml:"network_limitations,omitempty"`
+	OverrideDefaultSettings     *PolicyOverrides            `yaml:"override_default_settings" xml:"override_default_settings,omitempty"`
+	NetworkRequirements         string                      `yaml:"network_requirements" xml:"network_requirements,omitempty"`
+	Site                        *PolicySite                 `yaml:"site" xml:"site,omitempty"`
 }
 
 type PolicyCategory struct {
@@ -253,22 +253,22 @@ type PolicyPackage struct {
 }
 
 type PolicyScripts struct {
-	Size          uint32          `xml:"size,omitempty"`
-	PolicyScript  []*PolicyScript `xml:"script,omitempty"`
+	Size          uint32          `yaml:"size" xml:"size,omitempty"`
+	PolicyScript  []*PolicyScript `yaml:"script" xml:"script,omitempty"`
 }
 
 type PolicyScript struct {
-	ID           uint32 `xml:"id,omitempty"`
-	Name         string `xml:"name,omitempty"`
-	Priority     string `xml:"priority,omitempty"` // [ Before, After ]
-	Parameter4   string `xml:"parameter4,omitempty"`
-	Parameter5   string `xml:"parameter5,omitempty"`
-	Parameter6   string `xml:"parameter6,omitempty"`
-	Parameter7   string `xml:"parameter7,omitempty"`
-	Parameter8   string `xml:"parameter8,omitempty"`
-	Parameter9   string `xml:"parameter9,omitempty"`
-	Parameter10  string `xml:"parameter10,omitempty"`
-	Parameter11  string `xml:"parameter11,omitempty"`
+	ID           uint32 `yaml:"id" xml:"id,omitempty"`
+	Name         string `yaml:"name" xml:"name,omitempty"`
+	Priority     string `yaml:"priority" xml:"priority,omitempty"` // [ Before, After ]
+	Parameter4   string `yaml:"parameter4" xml:"parameter4,omitempty"`
+	Parameter5   string `yaml:"parameter5" xml:"parameter5,omitempty"`
+	Parameter6   string `yaml:"parameter6" xml:"parameter6,omitempty"`
+	Parameter7   string `yaml:"parameter7" xml:"parameter7,omitempty"`
+	Parameter8   string `yaml:"parameter8" xml:"parameter8,omitempty"`
+	Parameter9   string `yaml:"parameter9" xml:"parameter9,omitempty"`
+	Parameter10  string `yaml:"parameter10" xml:"parameter10,omitempty"`
+	Parameter11  string `yaml:"parameter11" xml:"parameter11,omitempty"`
 }
 
 type PolicyPrinters struct {
