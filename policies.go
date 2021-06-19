@@ -32,20 +32,20 @@ type Policy struct {
 type PolicyGeneral struct {
 	ID                          uint32                      `xml:"id,omitempty"`
 	Name                        string                      `xml:"name,omitempty"`
-	Enabled                     bool                        `xml:"enabled,omitempty"`
+	Enabled                     bool                        `xml:"enabled"`
 	Trigger                     string                      `xml:"trigger,omitempty"`
-	TriggerCheckin              bool                        `xml:"trigger_checkin,omitempty"`
-	TriggerEnrollmentComplete   bool                        `xml:"trigger_enrollment_complete,omitempty"`
-	TriggerLogin                bool                        `xml:"trigger_login,omitempty"`
-	TriggerLogout               bool                        `xml:"trigger_logout,omitempty"`
-	TriggerNetworkStateChanged  bool                        `xml:"trigger_network_state_changed,omitempty"`
-	TriggerStartup              bool                        `xml:"trigger_startup,omitempty"`
+	TriggerCheckin              bool                        `xml:"trigger_checkin"`
+	TriggerEnrollmentComplete   bool                        `xml:"trigger_enrollment_complete"`
+	TriggerLogin                bool                        `xml:"trigger_login"`
+	TriggerLogout               bool                        `xml:"trigger_logout"`
+	TriggerNetworkStateChanged  bool                        `xml:"trigger_network_state_changed"`
+	TriggerStartup              bool                        `xml:"trigger_startup"`
 	TriggerOther                string                      `xml:"trigger_other,omitempty"`
 	Frequency                   string                      `xml:"frequency,omitempty"`
-	Offline                     bool                        `xml:"offline,omitempty"`
+	Offline                     bool                        `xml:"offline"`
 	RetryEvent                  string                      `xml:"retry_event,omitempty"`
 	RetryAttempts               int32                       `xml:"retry_attempts,omitempty"`
-	NotifyOnEachFailedRetry     bool                        `xml:"notify_on_each_failed_retry,omitempty"`
+	NotifyOnEachFailedRetry     bool                        `xml:"notify_on_each_failed_retry"`
 	LocationUserOnly            string                      `xml:"location_user_only,omitempty"`
 	TargetDrive                 string                      `xml:"target_drive,omitempty"`
 	Category                    *PolicyCategory             `xml:"category,omitempty"`
@@ -75,13 +75,13 @@ type PolicyDateTimeLimitations struct {
 
 type PolicyNetworkLimitations struct {
 	MinimumNetworkConnection  string `xml:"minimum_network_connection,omitempty"` // Enum: [ No Minimum, Ethernet ]
-	AnyIPAddress              bool   `xml:"any_ip_address,omitempty"`
+	AnyIPAddress              bool   `xml:"any_ip_address"`
 }
 
 type PolicyOverrides struct {
 	TargetDrive         string `xml:"target_drive,omitempty"`
 	DistributionPoint   string `xml:"distribution_point,omitempty"`
-	ForceAfpSmb         bool   `xml:"force_afp_smb,omitempty"`
+	ForceAfpSmb         bool   `xml:"force_afp_smb"`
 	Sus                 string `xml:"sus,omitempty"`
 	NetbootServer       string `xml:"netboot_server,omitempty"`
 }
@@ -92,7 +92,7 @@ type PolicySite struct {
 }
 
 type PolicyScope struct {
-	AllComputers    bool                       `xml:"all_computers,omitempty"` // default: false
+	AllComputers    bool                       `xml:"all_computers"` // default: false
 	Computers       *PolicyScopeComputers      `xml:"computers,omitempty"`
 	ComputerGroups  *PolicyScopeComputerGroups `xml:"computer_groups,omitempty"`
 	Buildings       *PolicyScopeBuildings      `xml:"buildings,omitempty"`
@@ -206,14 +206,14 @@ type PolicyScopeExclusions struct {
 }
 
 type PolicySelfService struct {
-	UseForSelfService           bool                         `xml:"use_for_self_service,omitempty"` // default: false
+	UseForSelfService           bool                         `xml:"use_for_self_service"` // default: false
 	SelfServiceDisplayName      string                       `xml:"self_service_display_name,omitempty"`
 	InstallButtonText           string                       `xml:"install_button_text,omitempty"`
 	ReinstallButtonText         string                       `xml:"reinstall_button_text,omitempty"`
 	SelfServiceDescription      string                       `xml:"self_service_description,omitempty"`
-	ForceUsersToViewDescription bool                         `xml:"force_users_to_view_description,omitempty"` // default: false
+	ForceUsersToViewDescription bool                         `xml:"force_users_to_view_description"` // default: false
 	SelfServiceIcon             *PolicySelfServiceIcon       `xml:"self_service_icon,omitempty"`
-	FeatureOnMainPage           bool                         `xml:"feature_on_main_page,omitempty"` // default: false
+	FeatureOnMainPage           bool                         `xml:"feature_on_main_page"` // default: false
 	SelfServiceCategories       *PolicySelfServiceCategories `xml:"self_service_categories,omitempty"`
 }
 
@@ -230,8 +230,8 @@ type PolicySelfServiceCategories struct {
 type PolicySelfServiceCategory struct {
 	ID         uint32 `xml:"id,omitempty"`
 	Name       string `xml:"name,omitempty"` // default: true
-	DisplayIn  bool   `xml:"display_in,omitempty"` // default: false
-	FeatureIn  bool   `xml:"feature_in,omitempty"`
+	DisplayIn  bool   `xml:"display_in"` // default: false
+	FeatureIn  bool   `xml:"feature_in"`
 }
 
 type PolicyPackageConfiguration struct {
@@ -247,9 +247,9 @@ type PolicyPackage struct {
 	ID             uint32 `xml:"id,omitempty"`
 	Name           string `xml:"name,omitempty"`
 	Action         string `xml:"action,omitempty"`
-	Fut            bool   `xml:"fut,omitempty"`
-	Feu            bool   `xml:"feu,omitempty"`
-	UpdateAutorun  bool   `xml:"update_autorun,omitempty"`
+	Fut            bool   `xml:"fut"`
+	Feu            bool   `xml:"feu"`
+	UpdateAutorun  bool   `xml:"update_autorun"`
 }
 
 type PolicyScripts struct {
@@ -312,12 +312,12 @@ type PolicyAccount struct {
 	UserName                string `xml:"user_name,omitempty"`
 	RealName                string `xml:"real_name,omitempty"`
 	Password                string `xml:"password,omitempty"`
-	ArchiveHomeDirectory    bool   `xml:"archive_home_directory,omitempty"`
+	ArchiveHomeDirectory    bool   `xml:"archive_home_directory"`
 	ArchiveHomeDirectoryTo  string `xml:"archive_home_directory_to,omitempty"`
 	Home                    string `xml:"home,omitempty"`
 	Picture                 string `xml:"picture,omitempty"`
-	Admin                   bool   `xml:"admin,omitempty"`
-	FileVaultEnabled        bool   `xml:"filevault_enabled,omitempty"`
+	Admin                   bool   `xml:"admin"`
+	FileVaultEnabled        bool   `xml:"filevault_enabled"`
 }
 
 type PolicyDirectoryBindings struct {
@@ -348,37 +348,37 @@ type PolicyRebootSettings struct {
 	NoUserLoggedIn               string `xml:"no_user_logged_in"`
 	UserLoggedIn                 string `xml:"user_logged_in"`
 	MinutesUntilReboot           int32  `xml:"minutes_until_reboot"`
-	StartRebootTimerImmediately  bool  `xml:"start_reboot_timer_immediately"`
+	StartRebootTimerImmediately  bool   `xml:"start_reboot_timer_immediately"`
 	FileVaultReboot              bool   `xml:"file_value_2_reboot"`
 }
 
 type PolicyMaintenance struct {
-	Recon                     bool `xml:"recon,omitempty"`
-	ResetName                 bool `xml:"reset_name,omitempty"`
-	InstallAllCachedPackages  bool `xml:"install_all_cached_packages,omitempty"`
-	Heal                      bool `xml:"heal,omitempty"`
-	Prebindings               bool `xml:"prebindings,omitempty"`
-	Permissions               bool `xml:"permissions,omitempty"`
-	Byhost                    bool `xml:"byhost,omitempty"`
-	SystemCache               bool `xml:"system_cache,omitempty"`
-	UserCache                 bool `xml:"user_cache,omitempty"`
-	Verify                    bool `xml:"verify,omitempty"`
+	Recon                     bool `xml:"recon"`
+	ResetName                 bool `xml:"reset_name"`
+	InstallAllCachedPackages  bool `xml:"install_all_cached_packages"`
+	Heal                      bool `xml:"heal"`
+	Prebindings               bool `xml:"prebindings"`
+	Permissions               bool `xml:"permissions"`
+	Byhost                    bool `xml:"byhost"`
+	SystemCache               bool `xml:"system_cache"`
+	UserCache                 bool `xml:"user_cache"`
+	Verify                    bool `xml:"verify"`
 }
 
 type PolicyFilesProcesses struct {
 	SearchByPath          string `xml:"search_by_path,omitempty"`
-	DeleteFile            bool   `xml:"delete_file,omitempty"`
+	DeleteFile            bool   `xml:"delete_file"`
 	LocateFile            string `xml:"locate_file,omitempty"`
-	UpdateLocateDatabase  bool   `xml:"update_locate_database,omitempty"`
+	UpdateLocateDatabase  bool   `xml:"update_locate_database"`
 	SpotlightSearch       string `xml:"spotlight_search,omitempty"`
 	SearchForProcess      string `xml:"search_for_process,omitempty"`
-	KillProcess           bool   `xml:"kill_process,omitempty"`
+	KillProcess           bool   `xml:"kill_process"`
 	RunCommand            string `xml:"run_command,omitempty"`
 }
 
 type PolicyUserInteraction struct {
 	MessageStart           string `xml:"message_start,omitempty"`
-	AllowUsersToDefer      bool   `xml:"allow_users_to_defer,omitempty"`
+	AllowUsersToDefer      bool   `xml:"allow_users_to_defer"`
 	AllowDeferralUntilUtc  string `xml:"allow_deferral_until_utc,omitempty"`
 	AllowDeferralMinutes   uint32 `xml:"allow_deferral_minutes,omitempty"`
 	MessageFinish          string `xml:"message_finish,omitempty"`
@@ -387,7 +387,7 @@ type PolicyUserInteraction struct {
 type PolicyDiskEncryption struct {
 	Action                                  string `xml:"action,omitempty"` // [ apply, remediate ]
 	DiskEncryptionConfigurationID           uint32 `xml:"disk_encryption_configuration_id,omitempty"`
-	AuthRestart                             bool   `xml:"auth_restart,omitempty"` // [ Individual, Institutional, Individual And Institutional ]
+	AuthRestart                             bool   `xml:"auth_restart"` // [ Individual, Institutional, Individual And Institutional ]
 	RemediateKeyType                        string `xml:"remediate_key_type,omitempty"`
 	RemediateDiskEncryptionConfigurationID  uint32 `xml:"remediate_disk_encryption_configuration_id,omitempty"`
 }
