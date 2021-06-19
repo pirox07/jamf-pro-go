@@ -447,7 +447,7 @@ type CreatePolicyResult struct {
 	ID		uint32		`xml:"id,omitempty"`
 }
 
-func (c *Client) CreatePolicy (params *CreatePolicyParams) (*CreatePolicyResult, error) {
+func (c *Client) CreatePolicy (params *Policy) (*CreatePolicyResult, error) {
 	var result CreatePolicyResult
 
 	err := c.call(path.Join(APIPathPolices, "id", "0"), http.MethodPost,
@@ -482,7 +482,7 @@ type UpdatePolicyResult struct {
 	ID       uint32   `xml:"id,omitempty"`
 }
 
-func (c *Client) UpdatePolicy (policyID uint32, params *UpdatePolicyParams) (*UpdatePolicyResult, error) {
+func (c *Client) UpdatePolicy (policyID uint32, params *Policy) (*UpdatePolicyResult, error) {
 	var result UpdatePolicyResult
 
 	err := c.call(path.Join(APIPathPolices, "id", fmt.Sprint(policyID)), http.MethodPut,
